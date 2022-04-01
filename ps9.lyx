@@ -1,0 +1,474 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\headheight 2.5cm
+\headsep 2.5cm
+\footskip 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Problem Set 9
+\end_layout
+
+\begin_layout Author
+Daryl Larsen
+\end_layout
+
+\begin_layout Section
+Overidentifying restrictions test for nonlinear GMM
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(a) Find efficient weight matrix and asymptotic variance
+\end_layout
+
+\begin_layout Standard
+The efficient weight matrix for nonlinear GMM is 
+\begin_inset Formula $A^{*\prime}A^{*}=Var\big(g(w_{i},\theta_{0})\big)^{-1}=\Sigma_{0}^{-1}$
+\end_inset
+
+.
+ The asymptotic variance of the GMM estimator is 
+\begin_inset Formula 
+\[
+(\Gamma_{0}^{\prime}A^{\prime}A\Gamma_{0})^{-1}\Gamma_{0}^{\prime}A^{\prime}A\Sigma_{0}A^{\prime}A\Gamma_{0}(\Gamma_{0}^{\prime}A^{\prime}A\Gamma_{0})^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with the efficient weight matrix, this becomes
+\begin_inset Formula 
+\begin{align*}
+ & =(\Gamma_{0}^{\prime}\Sigma_{0}^{-1}\Gamma_{0})^{-1}\Gamma_{0}^{\prime}\Sigma_{0}^{-1}\Sigma_{0}\Sigma_{0}^{-1}\Gamma_{0}(\Gamma_{0}^{\prime}\Sigma_{0}^{-1}\Gamma_{0})^{-1}\\
+ & =(\Gamma_{0}^{\prime}\Sigma_{0}^{-1}\Gamma_{0})^{-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(b) Show that when the model holds, 
+\begin_inset Formula $J_{n}\rightarrow_{d}\chi_{l-d}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J_{n}=nQ_{n}^{*}(\hat{\theta}_{n}^{*}),\text{ where }Q_{n}^{*}(\theta)=\big(n^{-1}\sum_{i=1}^{n}g(W_{i},\theta)\big)^{\prime}A_{n}^{*\prime}A_{n}^{*}\big(n^{-1}\sum_{i=1}^{n}g(W_{i},\theta)\big)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Efficient IVs for nonlinear GMM
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(a) Find asymptotic variance of 
+\begin_inset Formula $\hat{\theta}_{n}^{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The criterion function for this GMM is
+\begin_inset Formula 
+\[
+Q_{n}(\theta)=\frac{1}{2}||A_{n}n^{-1}\sum_{i=1}^{n}g(W_{i},\theta)h(Z_{i})||^{2}
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\sqrt{n}(\hat{\theta}_{n}-\theta_{0})=-(\Gamma_{n}^{\prime}A^{\prime}A\Gamma_{n})^{-1}\Gamma_{n}^{\prime}A^{\prime}A\big(n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})h(Z_{i})\big)+o_{p}(1)
+\]
+
+\end_inset
+
+ Since by assumption, 
+\begin_inset Formula 
+\[
+n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})h(Z_{i})\rightarrow_{d}N(0,\Omega_{n})
+\]
+
+\end_inset
+
+it follows that 
+\begin_inset Formula 
+\[
+\sqrt{n}(\hat{\theta}_{n}-\theta_{0})\rightarrow_{d}N(0,(\Gamma_{n}^{\prime}A^{\prime}A\Gamma_{n})^{-1}\Gamma_{n}^{\prime}A^{\prime}A\Omega_{n}A^{\prime}A\Gamma_{n}(\Gamma_{n}^{\prime}A^{\prime}A\Gamma_{n})^{-1})
+\]
+
+\end_inset
+
+ then if we choose 
+\begin_inset Formula $A^{\prime}A=\Omega_{n}^{-1},$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sqrt{n}(\hat{\theta}_{n}-\theta_{0})\rightarrow_{d}N(0,(\Gamma_{n}^{\prime}\Omega_{n}^{-1}\Gamma_{n})^{-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(b) Find asymptotic variance of 
+\begin_inset Formula $\hat{\theta}_{n}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{\theta}_{n}^{*}$
+\end_inset
+
+ is the GMM estimator corresponding to the unconditional moment restriction
+ using 
+\begin_inset Formula $h_{*}(Z_{i})$
+\end_inset
+
+ as the instrument: 
+\begin_inset Formula $E(g(W_{i},\theta_{0})h_{*}(Z_{i}))=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\Gamma_{n}^{*}$
+\end_inset
+
+ be the 
+\begin_inset Formula $\Gamma_{n}$
+\end_inset
+
+ moment associated with this instrument.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{n}^{*} & =\frac{\partial}{\partial\theta^{\prime}}E(g(W_{i},\theta_{0})h_{*}(Z_{i}))\\
+ & =\frac{\partial}{\partial\theta^{\prime}}E\big[g(W_{i},\theta_{0})\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E\big(\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}\big)\big]\\
+ & =E\big[\frac{\partial}{\partial\theta^{\prime}}g(W_{i},\theta_{0})\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E\big(\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}\big)\big]\\
+ & =E\big[\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E(\frac{\partial g(W_{i},\theta_{0})}{\partial\theta^{\prime}}|Z_{i})E(\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i})\big]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly, let 
+\begin_inset Formula $\Omega_{n}^{*}$
+\end_inset
+
+ be the 
+\begin_inset Formula $\Omega_{n}$
+\end_inset
+
+ moment associated with the instrument:
+\begin_inset Formula 
+\begin{align*}
+\Omega_{n}^{*} & =E\big[g^{2}(W_{i},\theta_{0})h_{*}(Z_{i})h_{*}(Z_{i})^{\prime}\big]\\
+ & =E\big[E[g^{2}(W_{i},\theta_{0})|Z_{i}]h_{*}(Z_{i})h_{*}(Z_{i})^{\prime}\big]\\
+ & =E\big[E[g^{2}(W_{i},\theta_{0})|Z_{i}]\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E(\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i})\big(\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]\big)^{\prime}\big]\\
+ & =E\big[\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta^{\prime}}|Z_{i}]^{\prime}\big]\\
+ & =E\big[\frac{1}{E(g^{2}(W_{i},\theta_{0})|Z_{i})}E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta^{\prime}}|Z_{i}]\big]\\
+ & =\Gamma_{n}^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then the asymptotic variance of 
+\begin_inset Formula $\hat{\theta}_{n}^{*}$
+\end_inset
+
+ becomes 
+\begin_inset Formula 
+\begin{align*}
+(\Gamma_{n}^{*\prime}\Omega_{n}^{*-1}\Gamma_{n}^{*})^{-1} & =(\Gamma_{n}^{*\prime}\Gamma_{n}^{*-1}\Gamma_{n}^{*})^{-1}\\
+ & =(\Gamma_{n}^{*\prime})^{-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(c) Show 
+\begin_inset Formula $h_{*}(Z_{i})$
+\end_inset
+
+ is the efficient instrument
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V^{h}-V^{*}=(\Gamma_{n}^{\prime}\Omega_{n}^{-1}\Gamma_{n})^{-1}-(\Gamma_{n}^{*\prime})^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let there exist 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $e$
+\end_inset
+
+ such that 
+\begin_inset Formula $E(\epsilon e^{\prime})=E(ee^{\prime})$
+\end_inset
+
+ which implies 
+\begin_inset Formula $E(\epsilon\epsilon^{\prime})-E(ee^{\prime})\geq0$
+\end_inset
+
+.
+ Now I want to find 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $e$
+\end_inset
+
+ such that 
+\begin_inset Formula $E(ee^{\prime})=V^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $E(\epsilon\epsilon^{\prime})=V^{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $e\equiv V^{*}g(W_{i},\theta_{0})h_{*}(Z_{i})$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+E[ee^{\prime}] & =E[V^{*}g(W_{i},\theta_{0})h_{*}(Z_{i})h_{*}(Z_{i})^{\prime}g(W_{i},\theta_{0})^{\prime}V^{*\prime}]\\
+ & =V^{*}E[g^{2}(W_{i},\theta_{0})h_{*}(Z_{i})h_{*}(Z_{i})^{\prime}]V^{*}\\
+ & =V^{*}V^{*-1}V^{*}\\
+ & =V^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let 
+\begin_inset Formula $\epsilon\equiv V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}g(W_{i},\theta_{0})h(Z_{i})$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+E[\epsilon\epsilon^{\prime}] & =E[V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}g(W_{i},\theta_{0})h(Z_{i})h(Z_{i})^{\prime}g(W_{i},\theta_{0})\Omega_{n}^{-1}\Gamma_{n}V^{h}]\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}E[g^{2}(W_{i},\theta_{0})h(Z_{i})h(Z_{i})^{\prime}]\Omega_{n}^{-1}\Gamma_{n}V^{h}\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}\Gamma_{n}V^{h}\\
+ & =V^{h}V^{h-1}V^{h}\\
+ & =V^{h}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+E[\epsilon e^{\prime}] & =E[V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}g(W_{i},\theta_{0})h(Z_{i})h_{*}(Z_{i})^{\prime}g(W_{i},\theta_{0})V^{*}]\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}E[g^{2}(W_{i},\theta_{0})h(Z_{i})h_{*}(Z_{i})^{\prime}]V^{*}\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}E\big[g^{2}(W_{i},\theta_{0})h(Z_{i})\frac{1}{E[g^{2}(W_{i},\theta_{0})|Z_{i}}E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]^{\prime}\big]V^{*}\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}E\big[E[g^{2}(W_{i},\theta_{0})|Z_{i}]\frac{h(Z_{i})}{E[g^{2}(W_{i},\theta_{0})|Z_{i}]}E[\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]^{\prime}\big]V^{*}\\
+ & =V^{h}\Gamma_{n}^{\prime}\Omega_{n}^{-1}E\big[E[h(Z_{i})\frac{\partial g(W_{i},\theta_{0})}{\partial\theta}|Z_{i}]^{\prime}\big]V^{*}\\
+ & =V^{h}V^{h-1}V^{*}\\
+ & =V^{*}\\
+ & =E[ee^{\prime}]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $V^{h}-V^{*}\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(d) Steps for constructing a feasible version of 
+\begin_inset Formula $\hat{\theta}_{n}^{*}$
+\end_inset
+
+ when 
+\begin_inset Formula $h_{*}(Z_{i})$
+\end_inset
+
+ is unknown
+\end_layout
+
+\begin_layout Standard
+First, create a consistent but inefficient estimator 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ using 
+\begin_inset Formula $h(Z_{i})$
+\end_inset
+
+ as the instrument.
+ Since 
+\begin_inset Formula $h(Z_{i})$
+\end_inset
+
+ is known, it can be used.
+ We can then estimate 
+\begin_inset Formula $E[g^{2}(W_{i},\hat{\theta}_{n})|Z_{i}]$
+\end_inset
+
+ and 
+\begin_inset Formula $E[\frac{\partial g^{2}(W_{i},\hat{\theta}_{n})}{\partial\theta}|Z_{i}]$
+\end_inset
+
+, which are all we need to construct 
+\begin_inset Formula $\hat{h}_{*}(Z_{i})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
