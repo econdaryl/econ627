@@ -104,7 +104,7 @@ Overidentifying restrictions test for nonlinear GMM
 
 \begin_layout Standard
 The efficient weight matrix for nonlinear GMM is 
-\begin_inset Formula $A^{*\prime}A^{*}=Var\big(g(w_{i},\theta_{0})\big)^{-1}=\Sigma_{0}^{-1}$
+\begin_inset Formula $A^{*\prime}A^{*}=Var\big(g(W_{i},\theta_{0})\big)^{-1}=\Sigma_{0}^{-1}$
 \end_inset
 
 .
@@ -468,10 +468,6 @@ First, create a consistent but inefficient estimator
 
 .
  
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body

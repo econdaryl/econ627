@@ -104,7 +104,7 @@ Overidentifying restrictions test for nonlinear GMM
 
 \begin_layout Standard
 The efficient weight matrix for nonlinear GMM is 
-\begin_inset Formula $A^{*\prime}A^{*}=Var\big(g(w_{i},\theta_{0})\big)^{-1}=\Sigma_{0}^{-1}$
+\begin_inset Formula $A^{*\prime}A^{*}=Var\big(g(W_{i},\theta_{0})\big)^{-1}=\Sigma_{0}^{-1}$
 \end_inset
 
 .
@@ -147,6 +147,53 @@ with the efficient weight matrix, this becomes
 \end_inset
 
 .
+ Let 
+\begin_inset Formula $S_{0}\equiv E[g(W_{i},\theta_{0})g(W_{i},\theta_{0})^{\prime}].$
+\end_inset
+
+ Using a mean value expansion,
+\begin_inset Formula 
+\begin{align*}
+n^{-1/2}\sum_{i=1}^{n}g(W_{i},\hat{\theta}_{n}^{*}) & =n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})+n^{-1}\sum_{i=1}^{n}\frac{\partial g(W_{i},\tilde{\theta}_{n}^{*})}{\partial\theta^{\prime}}\sqrt{n}(\hat{\theta}_{n}^{*}-\theta_{0})\\
+ & =n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})+E\frac{\partial g(W_{i},\theta_{0})}{\partial\theta^{\prime}}\sqrt{n}(\hat{\theta}_{n}^{*}-\theta_{0})+o_{P}(1)\\
+ & =\big(I_{l}-\Gamma_{0}(\Gamma_{0}^{\prime}S_{0}^{-1}\Gamma_{0})^{-1}\Gamma_{0}^{\prime}S_{0}^{-1}\big)n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})+o_{P}(1)\\
+\implies A_{n}^{*}n^{-1/2}\sum_{i=1}^{n}g(W_{i},\hat{\theta}_{n}^{*}) & =\big(S_{0}^{-1/2}-S_{0}^{-1/2}\Gamma_{0}(\Gamma_{0}^{\prime}S_{0}^{-1}\Gamma_{0})^{-1}\Gamma_{0}^{\prime}S_{0}^{-1}\big)n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})+o_{P}(1)\\
+ & =\big(I_{l}-S_{0}^{-1/2}\Gamma_{0}(\Gamma_{0}^{\prime}S_{0}^{-1}\Gamma_{0})^{-1}\Gamma_{0}^{\prime}S_{0}^{-1}\big)S_{0}^{-1/2}n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})+o_{P}(1)\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then since 
+\begin_inset Formula $S_{0}^{-1/2}n^{-1/2}\sum_{i=1}^{n}g(W_{i},\theta_{0})\rightarrow_{d}N(0,I_{l})$
+\end_inset
+
+, if 
+\begin_inset Formula $H\equiv S_{0}^{-1/2}\Gamma_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $J_{n}=N(0,I_{l})^{\prime}\big(I_{l}-H(H^{\prime}H)^{-1}H^{\prime}\big)N(0,I_{l})+o_{P}(1),$
+\end_inset
+
+ with rank 
+\begin_inset Formula $l-d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(c) Find 
+\begin_inset Formula $\lim_{n\rightarrow\infty}P(J_{n}>\chi_{l-d,1-\alpha}^{2}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -440,7 +487,11 @@ Then
 \end_layout
 
 \begin_layout Standard
-First, create a consistent but inefficient estimator using 
+First, create a consistent but inefficient estimator 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ using 
 \begin_inset Formula $h(Z_{i})$
 \end_inset
 
@@ -451,10 +502,19 @@ First, create a consistent but inefficient estimator using
 
  is known, it can be used.
  We can then estimate 
-\begin_inset Formula $E[g^{2}(W_{i},\hat{\theta}_{n})$
+\begin_inset Formula $E[g^{2}(W_{i},\hat{\theta}_{n})|Z_{i}]$
 \end_inset
 
+ and 
+\begin_inset Formula $E[\frac{\partial g^{2}(W_{i},\hat{\theta}_{n})}{\partial\theta}|Z_{i}]$
+\end_inset
 
+, which are all we need to construct 
+\begin_inset Formula $\hat{h}_{*}(Z_{i})$
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
