@@ -109,35 +109,13 @@ Nah dog.
 \begin_inset Formula $Q_{\mathcal{A},n}(\hat{\theta}_{\mathcal{A},n})$
 \end_inset
 
- an that part's okay but the penalty term usin 
+ an imma have to think about if that part's okay but the penalty term usin
+ 
 \begin_inset Formula $\frac{\log n}{n}$
 \end_inset
 
  means that the penalty dus goes away wif lorge n and that just don't sit
  right with me.
- Y'see, if n is lorge enuff, an overfitted model will minimize 
-\begin_inset Formula $Q_{\mathcal{A},n}(\hat{\theta}_{\mathcal{A},n})$
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-emph{and}
-\end_layout
-
-\end_inset
-
- the penalty will be small enuff that it won't matter.
- Jus use a penalty of 
-\begin_inset Formula $\log n$
-\end_inset
-
- like yous supposed to! Geez louise! 
 \end_layout
 
 \end_body
